@@ -1,0 +1,15 @@
+#loginModal {
+  max-width: 800px;
+}
+
+#loginModal .breadcrumb.title {
+  padding-top: 5%;
+}
+
+#loginModal nav {
+  height: 9em;
+}
+
+nav .breadcrumb.title img {
+  align-self: center;
+}

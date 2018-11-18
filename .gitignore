@@ -1,0 +1,5 @@
+﻿*config
+fronty/dist
+fronty/node_modules
+backy/.settings
+backy/target

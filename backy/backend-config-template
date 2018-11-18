@@ -1,0 +1,6 @@
+#Fri Sep 28 20:24:24 WEST 2018
+dbpassword=superSavePassword
+database=jdbc\:mysql\://localhost\:8080/dbname
+port: 1234
+databaseRest=http://localhost:
+dbuser=root

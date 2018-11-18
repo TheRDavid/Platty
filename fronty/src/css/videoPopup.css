@@ -1,0 +1,24 @@
+#videoModal {
+  max-width: 80%;
+  overflow: hidden;
+}
+
+nav {
+  height: 4.5em;
+}
+
+nav .breadcrumb.title {
+  text-align: center;
+  margin: 0%;
+}
+
+button.btn-floating.btn-close {
+  float: right;
+  line-height: 2.5em;
+  margin-top: 1em;
+  margin-right: 1em;
+}
+
+.breadcrumb .btn-close i {
+  margin-top: -0.5em;
+}

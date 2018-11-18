@@ -1,0 +1,6 @@
+#Fri Sep 28 20:24:24 WEST 2018
+dbpassword=h-wl71
+database=jdbc\:mysql\://localhost\:3306/learny-db
+port: 4576
+databaseRest=http://localhost:
+dbuser=root
