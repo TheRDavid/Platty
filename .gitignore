@@ -1,4 +1,5 @@
 ﻿*config
+*-config.tsx
 fronty/dist
 fronty/node_modules
 backy/.settings
