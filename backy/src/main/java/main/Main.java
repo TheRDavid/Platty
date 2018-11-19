@@ -65,7 +65,6 @@ public class Main implements SparkApplication {
 		});
 
 		before((request, response) -> {
-
 			response.header("Access-Control-Request-Method", "POST, GET, OPTIONS, DELETE, PUT");
 
 			response.header("Access-Control-Allow-Origin", "*");
@@ -80,11 +79,11 @@ public class Main implements SparkApplication {
 		restListeners.put("/login",new LoginListener());
 		restListeners.put("/info",new InfoListener());
 
-		get("/info", (req, res) -> {
-			return restListeners.get("/info").handle(req, res);
+		get("/*", (req, res) -> {
+			return restListeners.get(req.pathInfo()).handle(req, res);
 		});
-		post("/login", (req, res) -> {
-			return restListeners.get("/login").handle(req, res);
+		post("/*", (req, res) -> {
+			return restListeners.get(req.pathInfo()).handle(req, res);
 		});
 	}
 
