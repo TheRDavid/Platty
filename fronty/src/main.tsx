@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
 import * as config from "./frontend-config";
+var pjson = require("../package.json");
 
 let mainWindow: Electron.BrowserWindow;
 
@@ -10,7 +11,11 @@ function createWindow() {
     height: config.frontendConfig.windowHeight,
     width: config.frontendConfig.windowWidth
   });
-  mainWindow.setTitle(config.frontendConfig.appTitle);
+  var title = config.frontendConfig.appTitle + " ";
+  if (config.frontendConfig.showVersionInTitle)
+    title = title.concat(pjson.version);
+  mainWindow.setTitle(title);
+  mainWindow.setFullScreen(config.frontendConfig.fullscreen);
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "../index.html"));

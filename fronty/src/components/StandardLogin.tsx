@@ -102,7 +102,7 @@ export class Login extends React.Component<{}, IState> {
                 <input
                   onKeyPress={this.handleKeyEvent}
                   onChange={this.updateFormData}
-                  placeholder="Name"
+                  placeholder="E-Mail"
                   id="name"
                   type="text"
                   className="validate"

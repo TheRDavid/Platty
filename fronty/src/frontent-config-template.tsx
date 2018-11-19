@@ -3,4 +3,6 @@ export namespace frontendConfig {
   export var windowWidth: number = 1920,
     windowHeight = 1080;
   export var appTitle = "App Title";
+  export var showVersionInTitle = false;
+  export var fullscreen: boolean = true;
 }
