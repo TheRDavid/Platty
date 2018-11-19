@@ -83,7 +83,7 @@ export class Login extends React.Component<{}, IState> {
         <VideoPopup
           ref={this.state.helpPopup}
           title="Hope this helps"
-          mediaPath="https://www.youtube.com/embed/yl_5hFNiEwM"
+          mediaPath="https://www.youtube.com/embed/yl_5hFNiEwM?autoplay=1;rel=0&amp&amp;showinfo=0&rel=0"
         />
         <div id="loginModal" className="modal">
           <nav>

@@ -5,7 +5,6 @@ import { element } from "prop-types";
 export interface IProps {
   title: String;
   mediaPath: string;
-  youtubeEmbedConfig: string;
 }
 interface IState {
   playing: boolean;
@@ -27,8 +26,7 @@ export class VideoPopup extends React.Component<IProps, IState> {
 
     // in case it was paused before
     var iframe = document.querySelector("iframe");
-    if (iframe && !this.state.playing)
-      iframe.src = this.props.mediaPath.concat(this.props.youtubeEmbedConfig);
+    if (iframe && !this.state.playing) iframe.src = this.props.mediaPath;
 
     instance.open();
   }
@@ -80,7 +78,7 @@ export class VideoPopup extends React.Component<IProps, IState> {
                 <iframe
                   width="560"
                   height="315"
-                  src={this.props.mediaPath.concat(youtubeEmbedConfig)}
+                  src={this.props.mediaPath}
                   frameBorder="0"
                   allow="encrypted-media"
                   allowFullScreen
