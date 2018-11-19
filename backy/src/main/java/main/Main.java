@@ -14,16 +14,22 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Formatter;
+import java.util.HashMap;
+import java.util.HashSet;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import rest.InfoListener;
+import rest.LoginListener;
+import rest.RestListener;
 import spark.servlet.SparkApplication;
 
 public class Main implements SparkApplication {
 
 	private static String mysqlDriver = "com.mysql.jdbc.Driver";
-	public static String WELCOME_MESSAGE = "Hello there";
+	
+	private HashMap<String, RestListener> restListeners = new HashMap<>();
 
 	public static void main(String[] args) {
 		new Main().init();
@@ -71,61 +77,15 @@ public class Main implements SparkApplication {
 			response.type("application/json");
 		});
 
-		get("/hello", (req, res) -> {
-			JSONObject jObject = new JSONObject();
-			jObject.put("data", WELCOME_MESSAGE);
-			return jObject.toJSONString();
+		restListeners.put("/login",new LoginListener());
+		restListeners.put("/info",new InfoListener());
+
+		get("/info", (req, res) -> {
+			return restListeners.get("/info").handle(req, res);
 		});
 		post("/login", (req, res) -> {
-			System.out.println("Incoming");
-			JSONObject credentials = (JSONObject) new JSONParser().parse(req.body());
-			System.out.println("Cred: " + credentials.toString());
-			String email = (String) credentials.get("email");
-			String password = encryptPassword((String) credentials.get("password"));
-			Connection con = DriverManager.getConnection(Config.getDatabaseURL(), Config.getDbuser(), Config.getDbpassword());
-			PreparedStatement stmt = con.prepareStatement("select * from users where email = ? and password = ?");
-			stmt.setString(1, email);
-			stmt.setString(2, password);
-			ResultSet rs = stmt.executeQuery();
-			String response = "You have entered an invalid username or password";
-			String responseType = "error";
-			while (rs.next()) {
-				System.out.println(rs.getString(1) + " " + rs.getString(2));
-				response = "Signed in as " + rs.getString(1) + " " + rs.getString(2);
-				responseType = "success";
-			}
-			con.close();
-			JSONObject jObject = new JSONObject();
-			jObject.put("type", responseType);
-			jObject.put("data", response);
-			return jObject.toJSONString();
+			return restListeners.get("/login").handle(req, res);
 		});
 	}
-
-	private static String byteToHex(final byte[] hash) {
-		Formatter formatter = new Formatter();
-		for (byte b : hash) {
-			formatter.format("%02x", b);
-		}
-		String result = formatter.toString();
-		formatter.close();
-		return result;
-	}
-
-	public static String encryptPassword(String password) {
-		String sha1 = "";
-		try {
-			MessageDigest crypt = MessageDigest.getInstance("SHA-1");
-			crypt.reset();
-			crypt.update(password.getBytes("UTF-8"));
-			sha1 = byteToHex(crypt.digest());
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		return sha1;
-	}
-
 
 }

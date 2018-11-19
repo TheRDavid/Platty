@@ -15,7 +15,7 @@ public class Config {
 	 */
 	private Config() {
 	}
-
+	  
 	public static void init(String path) {
 		Properties prop = new Properties();
 		InputStream input = null;
@@ -38,7 +38,6 @@ public class Config {
 				}
 			}
 		}
-
 	}
 
 	public static String getDatabaseURL() {
