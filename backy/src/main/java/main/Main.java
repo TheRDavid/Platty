@@ -6,19 +6,7 @@ import static spark.Spark.options;
 import static spark.Spark.port;
 import static spark.Spark.post;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Formatter;
 import java.util.HashMap;
-import java.util.HashSet;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import rest.InfoListener;
 import rest.LoginListener;
