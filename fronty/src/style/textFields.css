@@ -1,0 +1,14 @@
+.mainSearchBar {
+  border-radius: 7px;
+  background-color: #7c7;
+  -webkit-transition: background-color 1s ease-out;
+  transition: background-color 1s ease-out;
+  margin-left: 50px;
+  min-width: 50%;
+  padding: 5px;
+}
+
+.mainSearchBar:hover,
+.mainSearchBar:focus-within {
+  background-color: lightgrey;
+}

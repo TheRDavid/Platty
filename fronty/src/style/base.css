@@ -1,0 +1,18 @@
+@import url("cards.css");
+@import url("dialogs.css");
+@import url("avatars.css");
+@import url("buttons.css");
+@import url("textFields.css");
+
+body {
+  background-color: #eee;
+}
+
+.mainGrid {
+  margin: 30px;
+  padding: 30px;
+}
+
+.spanToRight {
+  flex-grow: 1;
+}

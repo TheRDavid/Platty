@@ -1,5 +1,6 @@
 module.exports = {
   watch: true,
+  target: "node",
   entry: "./src/index.tsx",
   output: {
     filename: "bundle.js",
@@ -40,5 +41,8 @@ module.exports = {
     react: "React",
     "react-dom": "ReactDOM",
     jquery: "jQuery"
+  },
+  node: {
+    fs: "empty"
   }
 };

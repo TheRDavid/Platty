@@ -1,7 +1,8 @@
-﻿*config
-*-config.tsx
-fronty/dist
+﻿fronty/dist
 fronty/node_modules
+frontendConfig.json
+user.json
 backy/.settings
 backy/target
 backend-config
+fronty/dist/

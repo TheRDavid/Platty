@@ -24,7 +24,7 @@ public class Main implements SparkApplication {
 	}
 
 	@Override
-	public void init() {
+	public void init() { 
 		System.out.println("init");
 		try {
 			Class.forName(mysqlDriver);

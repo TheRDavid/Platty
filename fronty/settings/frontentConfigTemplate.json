@@ -1,0 +1,9 @@
+{
+  "fullscreen": false,
+  "backendAddress": "http://localhost:8080/",
+  "windowWidth": 1920,
+  "windowHeight": 1080,
+  "appTitle": "App Title",
+  "showVersionInTitle": false,
+  "rememberCredentials": true
+}
